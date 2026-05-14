@@ -306,11 +306,11 @@ class Database {
                 socketPath: dbConfig.socketPath,
                 ...(dbConfig.ssl
                     ? {
-                          ssl: {
-                              rejectUnauthorized: true,
-                              ...(dbConfig.ca && dbConfig.ca.trim() !== "" ? { ca: [dbConfig.ca] } : {}),
-                          },
-                      }
+                        ssl: {
+                            rejectUnauthorized: true,
+                            ...(dbConfig.ca && dbConfig.ca.trim() !== "" ? { ca: [dbConfig.ca] } : {}),
+                        },
+                    }
                     : {}),
             });
 
@@ -340,11 +340,11 @@ class Database {
                     },
                     ...(dbConfig.ssl
                         ? {
-                              ssl: {
-                                  rejectUnauthorized: true,
-                                  ...(dbConfig.ca && dbConfig.ca.trim() !== "" ? { ca: [dbConfig.ca] } : {}),
-                              },
-                          }
+                            ssl: {
+                                rejectUnauthorized: true,
+                                ...(dbConfig.ca && dbConfig.ca.trim() !== "" ? { ca: [dbConfig.ca] } : {}),
+                            },
+                        }
                         : {}),
                 },
                 pool: mariadbPoolConfig,
@@ -466,7 +466,7 @@ class Database {
      * @returns {Promise<void>}
      */
     static async patch(port = undefined, hostname = undefined) {
-        // Still need to keep this for old versions of Uptime Kuma
+        // Still need to keep this for old versions of Reval Moniter
         if (Database.dbConfig.type === "sqlite") {
             await this.patchSqlite();
         }
@@ -495,7 +495,7 @@ class Database {
             // Allow missing patch files for downgrade or testing pr.
             if (e.message.includes("the following files are missing:")) {
                 log.warn("db", e.message);
-                log.warn("db", "Database migration failed, you may be downgrading Uptime Kuma.");
+                log.warn("db", "Database migration failed, you may be downgrading Reval Moniter.");
             } else {
                 log.error("db", "Database migration failed");
                 throw e;
@@ -507,7 +507,7 @@ class Database {
      * TODO
      * @returns {Promise<void>}
      */
-    static async rollbackLatestPatch() {}
+    static async rollbackLatestPatch() { }
 
     /**
      * Patch the database for SQLite

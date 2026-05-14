@@ -13,7 +13,7 @@ class Fluxer extends NotificationProvider {
 
         try {
             let config = this.getAxiosConfigWithProxy({});
-            const fluxerDisplayName = notification.fluxerUsername || "Uptime Kuma";
+            const fluxerDisplayName = notification.fluxerUsername || "Reval Moniter";
             const webhookUrl = new URL(notification.fluxerWebhookUrl);
 
             // Check if the webhook has an avatar
@@ -110,11 +110,11 @@ class Fluxer extends NotificationProvider {
                                 },
                                 ...(!notification.disableUrl && addess
                                     ? [
-                                          {
-                                              name: monitorJSON["type"] === "push" ? "Service Type" : "Service URL",
-                                              value: addess,
-                                          },
-                                      ]
+                                        {
+                                            name: monitorJSON["type"] === "push" ? "Service Type" : "Service URL",
+                                            value: addess,
+                                        },
+                                    ]
                                     : []),
                                 {
                                     name: "Went Offline",
@@ -164,28 +164,28 @@ class Fluxer extends NotificationProvider {
                                 },
                                 ...(!notification.disableUrl && addess
                                     ? [
-                                          {
-                                              name: monitorJSON["type"] === "push" ? "Service Type" : "Service URL",
-                                              value: addess,
-                                          },
-                                      ]
+                                        {
+                                            name: monitorJSON["type"] === "push" ? "Service Type" : "Service URL",
+                                            value: addess,
+                                        },
+                                    ]
                                     : []),
                                 ...(wentOfflineTimestamp
                                     ? [
-                                          {
-                                              name: "Went Offline",
-                                              // F for full date/time
-                                              value: `<t:${wentOfflineTimestamp}:F>`,
-                                          },
-                                      ]
+                                        {
+                                            name: "Went Offline",
+                                            // F for full date/time
+                                            value: `<t:${wentOfflineTimestamp}:F>`,
+                                        },
+                                    ]
                                     : []),
                                 ...(downtimeDuration
                                     ? [
-                                          {
-                                              name: "Downtime Duration",
-                                              value: downtimeDuration,
-                                          },
-                                      ]
+                                        {
+                                            name: "Downtime Duration",
+                                            value: downtimeDuration,
+                                        },
+                                    ]
                                     : []),
                                 // Show server timezone for parity with the DOWN notification embed
                                 {
@@ -194,11 +194,11 @@ class Fluxer extends NotificationProvider {
                                 },
                                 ...(heartbeatJSON["ping"] != null
                                     ? [
-                                          {
-                                              name: "Ping",
-                                              value: heartbeatJSON["ping"] + " ms",
-                                          },
-                                      ]
+                                        {
+                                            name: "Ping",
+                                            value: heartbeatJSON["ping"] + " ms",
+                                        },
+                                    ]
                                     : []),
                             ],
                         },

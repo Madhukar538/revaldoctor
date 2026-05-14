@@ -17,7 +17,7 @@ const jsonata = require("jsonata");
 exports.isDev = process.env.NODE_ENV === "development";
 exports.isNode = typeof process !== "undefined" && ((_a = process === null || process === void 0 ? void 0 : process.versions) === null || _a === void 0 ? void 0 : _a.node);
 const dayjs = exports.isNode ? require("dayjs") : dayjs_1.default;
-exports.appName = "Uptime Kuma";
+exports.appName = "Reval Moniter";
 exports.DOWN = 0;
 exports.UP = 1;
 exports.PENDING = 2;
@@ -178,18 +178,18 @@ class Logger {
         if (process.env.UPTIME_KUMA_LOG_FORMAT === "json") {
             const msgString = msg
                 .map((m) => {
-                if (typeof m === "string") {
-                    return m;
-                }
-                else {
-                    try {
-                        return JSON.stringify(m);
+                    if (typeof m === "string") {
+                        return m;
                     }
-                    catch (_a) {
-                        return String(m);
+                    else {
+                        try {
+                            return JSON.stringify(m);
+                        }
+                        catch (_a) {
+                            return String(m);
+                        }
                     }
-                }
-            })
+                })
                 .join(" ");
             console.log(JSON.stringify({
                 time: now,
@@ -292,19 +292,19 @@ function getRandomInt(min, max) {
 exports.getRandomInt = getRandomInt;
 const getRandomBytes = (typeof window !== "undefined" && window.crypto
     ?
-        function () {
-            return (numBytes) => {
-                const randomBytes = new Uint8Array(numBytes);
-                for (let i = 0; i < numBytes; i += 65536) {
-                    window.crypto.getRandomValues(randomBytes.subarray(i, i + Math.min(numBytes - i, 65536)));
-                }
-                return randomBytes;
-            };
-        }
+    function () {
+        return (numBytes) => {
+            const randomBytes = new Uint8Array(numBytes);
+            for (let i = 0; i < numBytes; i += 65536) {
+                window.crypto.getRandomValues(randomBytes.subarray(i, i + Math.min(numBytes - i, 65536)));
+            }
+            return randomBytes;
+        };
+    }
     :
-        function () {
-            return require("crypto").randomBytes;
-        })();
+    function () {
+        return require("crypto").randomBytes;
+    })();
 function getCryptoRandomInt(min, max) {
     const range = max - min;
     if (range >= Math.pow(2, 32)) {

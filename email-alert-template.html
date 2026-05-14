@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reval Monitor Alert</title>
+</head>
+<body style="margin:0;padding:0;background-color:#eef2f7;font-family:'Segoe UI',Helvetica,Arial,sans-serif;">
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#eef2f7;padding:40px 16px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0"
+               style="max-width:600px;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.10);">
+
+          <!-- ═══════════════════════════════════════
+               HEADER
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color:#1a2340;padding:28px 40px;text-align:center;">
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                <tr>
+                  <td style="vertical-align:middle;padding-right:10px;">
+                    <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <polyline points="0,10 5,10 7,2 10,18 13,6 16,14 19,10 26,10"
+                                stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <span style="font-size:18px;font-weight:300;color:#ffffff;letter-spacing:3px;text-transform:uppercase;">
+                      REVAL <strong style="font-weight:700;">MONITOR</strong>
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               STATUS BANNER  (red = DOWN / green = UP)
+          ════════════════════════════════════════ -->
+          <tr>
+            <!-- Change background to #27ae60 for UP recovery emails -->
+            <td style="background-color:#c0392b;padding:14px 40px;text-align:center;">
+              <span style="font-size:13px;font-weight:700;color:#ffffff;letter-spacing:2px;text-transform:uppercase;">
+                ● &nbsp;SERVICE IS DOWN
+              </span>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               MAIN CARD
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color:#ffffff;padding:36px 40px 0 40px;">
+
+              <!-- Alert label + monitor name -->
+              <p style="margin:0 0 6px 0;font-size:11px;font-weight:700;color:#c0392b;letter-spacing:2px;text-transform:uppercase;">
+                Incident Alert
+              </p>
+              <h1 style="margin:0 0 24px 0;font-size:24px;font-weight:700;color:#1a2340;line-height:1.2;">
+                {{monitor.name}}
+              </h1>
+
+              <!-- Details table -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+
+                <tr>
+                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;">STATUS</td>
+                        <td style="font-size:14px;color:#1a2340;font-weight:600;">
+                          <span style="display:inline-block;background-color:#fdecea;color:#c0392b;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1px;">
+                            UNREACHABLE
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;padding-top:2px;">URL</td>
+                        <td style="font-size:14px;color:#2563eb;word-break:break-all;">
+                          <a href="{{monitor.url}}" style="color:#2563eb;text-decoration:none;">{{monitor.url}}</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;padding-top:2px;">TIMESTAMP</td>
+                        <td style="font-size:14px;color:#1a2340;">{{time}} UTC</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;padding-top:2px;">MONITOR TYPE</td>
+                        <td style="font-size:14px;color:#1a2340;text-transform:uppercase;font-weight:600;">{{monitor.type}}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;padding-top:2px;">CHECK EVERY</td>
+                        <td style="font-size:14px;color:#1a2340;">{{monitor.interval}} seconds</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- Reason box -->
+          <tr>
+            <td style="background-color:#ffffff;padding:24px 40px 0 40px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                     style="background-color:#fdecea;border-left:4px solid #c0392b;border-radius:0 6px 6px 0;">
+                <tr>
+                  <td style="padding:14px 18px;">
+                    <p style="margin:0 0 4px 0;font-size:11px;font-weight:700;color:#c0392b;letter-spacing:1px;text-transform:uppercase;">
+                      Failure Reason
+                    </p>
+                    <p style="margin:0;font-size:14px;color:#7b1818;line-height:1.5;">
+                      {{msg}}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA Button -->
+          <tr>
+            <td style="background-color:#ffffff;padding:28px 40px 36px 40px;text-align:center;">
+              <a href="{{dashboardUrl}}"
+                 style="display:inline-block;background-color:#1a2340;color:#ffffff;font-size:14px;font-weight:600;
+                        text-decoration:none;padding:14px 36px;border-radius:8px;letter-spacing:0.5px;">
+                Open Dashboard →
+              </a>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               QUICK STATS ROW
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color:#f7f9fc;padding:20px 40px;border-top:1px solid #e8ecf0;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="33%" style="text-align:center;padding:8px;">
+                    <p style="margin:0;font-size:11px;color:#6b7a99;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Monitor</p>
+                    <p style="margin:6px 0 0;font-size:15px;font-weight:700;color:#1a2340;">{{monitor.name}}</p>
+                  </td>
+                  <td width="33%" style="text-align:center;padding:8px;border-left:1px solid #e8ecf0;border-right:1px solid #e8ecf0;">
+                    <p style="margin:0;font-size:11px;color:#6b7a99;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Status</p>
+                    <p style="margin:6px 0 0;font-size:15px;font-weight:700;color:#c0392b;">DOWN</p>
+                  </td>
+                  <td width="33%" style="text-align:center;padding:8px;">
+                    <p style="margin:0;font-size:11px;color:#6b7a99;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Interval</p>
+                    <p style="margin:6px 0 0;font-size:15px;font-weight:700;color:#1a2340;">{{monitor.interval}}s</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               FOOTER
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color:#f0f3f8;border-top:1px solid #e0e6ed;padding:20px 40px;border-radius:0 0 12px 12px;text-align:center;">
+              <p style="margin:0 0 6px 0;font-size:12px;color:#9aa3b5;">
+                You received this alert because you have notifications enabled in
+                <strong style="color:#1a2340;">Reval Monitor</strong>.
+              </p>
+              <p style="margin:0;font-size:12px;color:#9aa3b5;">
+                <a href="{{dashboardUrl}}" style="color:#2563eb;text-decoration:none;">Dashboard</a>
+                &nbsp;&nbsp;·&nbsp;&nbsp;
+                <a href="{{dashboardUrl}}/settings/notifications" style="color:#2563eb;text-decoration:none;">Notification Settings</a>
+                &nbsp;&nbsp;·&nbsp;&nbsp;
+                <a href="{{dashboardUrl}}" style="color:#2563eb;text-decoration:none;">Status Page</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

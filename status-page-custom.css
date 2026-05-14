@@ -1,0 +1,242 @@
+/* =============================================
+   REVAL MONITOR — Status Page Custom CSS
+   Paste into: Status Page → Edit → Custom CSS
+   ============================================= */
+
+/* ── Google Font ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --bg-primary:     #0b0f1a;
+  --bg-card:        #111827;
+  --bg-card-hover:  #1a2235;
+  --border:         rgba(255, 255, 255, 0.06);
+  --border-hover:   rgba(255, 255, 255, 0.12);
+  --text-primary:   #f0f4ff;
+  --text-secondary: #8892a4;
+  --text-muted:     #4a5568;
+  --green:          #10b981;
+  --green-bg:       rgba(16, 185, 129, 0.08);
+  --red:            #ef4444;
+  --red-bg:         rgba(239, 68, 68, 0.08);
+  --yellow:         #f59e0b;
+  --yellow-bg:      rgba(245, 158, 11, 0.08);
+  --accent:         #3b82f6;
+  --radius:         12px;
+}
+
+/* ── Base ── */
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif !important;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  min-height: 100vh;
+}
+
+/* ── Background subtle grid ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Main wrapper ── */
+.container, .main-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header / Hero ── */
+.header-top,
+.status-page-title-area,
+h1.title {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 28px 0 24px !important;
+  margin-bottom: 36px !important;
+}
+
+h1, .status-page-name {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── Overall status banner ── */
+.overall-status,
+.incident-small-box,
+.status-page-all-systems-operational {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: var(--green-bg) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  border-radius: 999px !important;
+  padding: 8px 20px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--green) !important;
+  letter-spacing: 0.5px !important;
+  margin: 16px 0 !important;
+}
+
+.overall-status::before,
+.status-page-all-systems-operational::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+/* ── Monitor / Service cards ── */
+.monitor-list .item,
+.monitor-item,
+.shadow-box,
+.list-group-item {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 18px 22px !important;
+  margin-bottom: 10px !important;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25) !important;
+}
+
+.monitor-list .item:hover,
+.monitor-item:hover,
+.shadow-box:hover {
+  background: var(--bg-card-hover) !important;
+  border-color: var(--border-hover) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Monitor name ── */
+.monitor-name,
+.item-name,
+.monitor-list .name {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── Status badges ── */
+.badge,
+.status-badge,
+.tag {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  border-radius: 999px !important;
+  padding: 4px 12px !important;
+  border: none !important;
+}
+
+/* Up/Operational */
+.badge-success, .badge.up, .status-up, .tag.success {
+  background: var(--green-bg) !important;
+  color: var(--green) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Down */
+.badge-danger, .badge.down, .status-down, .tag.danger {
+  background: var(--red-bg) !important;
+  color: var(--red) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Degraded */
+.badge-warning, .badge.degraded, .status-degraded, .tag.warning {
+  background: var(--yellow-bg) !important;
+  color: var(--yellow) !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+}
+
+/* ── Uptime bars (heartbeat) ── */
+.heartbeat-bar .beat,
+.beat {
+  border-radius: 3px !important;
+  transition: opacity 0.2s !important;
+}
+
+.beat.up   { background: var(--green) !important; }
+.beat.down { background: var(--red) !important; }
+.beat.empty, .beat.none { background: rgba(255,255,255,0.06) !important; }
+
+/* ── Uptime percentage text ── */
+.uptime-percent,
+.percentage {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--green) !important;
+}
+
+/* ── Incident section ── */
+.incident,
+.incident-box {
+  background: rgba(239, 68, 68, 0.05) !important;
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+  border-left: 3px solid var(--red) !important;
+  border-radius: var(--radius) !important;
+  padding: 18px 22px !important;
+  margin: 16px 0 !important;
+}
+
+.incident-title {
+  color: var(--red) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+
+/* ── Section headings ── */
+h2, h3, .section-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  margin-bottom: 16px !important;
+}
+
+/* ── Footer ── */
+footer, .footer, .powered-by {
+  border-top: 1px solid var(--border) !important;
+  margin-top: 48px !important;
+  padding-top: 20px !important;
+  text-align: center !important;
+  font-size: 12px !important;
+  color: var(--text-muted) !important;
+  background: transparent !important;
+}
+
+footer a, .footer a {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
