@@ -5,30 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reval Monitor Alert</title>
 </head>
-<body style="margin:0;padding:0;background-color:#eef2f7;font-family:'Segoe UI',Helvetica,Arial,sans-serif;">
+<body style="margin:0;padding:0;background-color:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;color:#111827;">
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#eef2f7;padding:40px 16px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f9fafb;padding:48px 16px;">
     <tr>
       <td align="center">
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0"
-               style="max-width:600px;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.10);">
+        <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;">
 
-          <!-- ═══════════════════════════════════════
-               HEADER
-          ════════════════════════════════════════ -->
+          <!-- Logo / Brand -->
           <tr>
-            <td style="background-color:#1a2340;padding:28px 40px;text-align:center;">
-              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+            <td style="padding-bottom:32px;text-align:left;">
+              <table role="presentation" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td style="vertical-align:middle;padding-right:10px;">
-                    <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <polyline points="0,10 5,10 7,2 10,18 13,6 16,14 19,10 26,10"
-                                stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    </svg>
-                  </td>
                   <td style="vertical-align:middle;">
-                    <span style="font-size:18px;font-weight:300;color:#ffffff;letter-spacing:3px;text-transform:uppercase;">
-                      REVAL <strong style="font-weight:700;">MONITOR</strong>
+                    <img src="https://www.revalsys.com/images/Revalsys-logo-sm.png"
+                         alt="Revalsys"
+                         width="120"
+                         style="display:block;height:auto;border:0;" />
+                  </td>
+                  <td style="vertical-align:middle;padding-left:10px;border-left:1px solid #e5e7eb;margin-left:10px;">
+                    <span style="font-size:12px;font-weight:600;color:#6b7280;letter-spacing:1px;text-transform:uppercase;">
+                      Monitor
                     </span>
                   </td>
                 </tr>
@@ -36,169 +33,170 @@
             </td>
           </tr>
 
-          <!-- ═══════════════════════════════════════
-               STATUS BANNER  (red = DOWN / green = UP)
-          ════════════════════════════════════════ -->
+          <!-- Card -->
           <tr>
-            <!-- Change background to #27ae60 for UP recovery emails -->
-            <td style="background-color:#c0392b;padding:14px 40px;text-align:center;">
-              <span style="font-size:13px;font-weight:700;color:#ffffff;letter-spacing:2px;text-transform:uppercase;">
-                ● &nbsp;SERVICE IS DOWN
-              </span>
-            </td>
-          </tr>
+            <td style="background:#ffffff;border:1px solid #e5e7eb;border-radius:10px;padding:36px 40px;">
 
-          <!-- ═══════════════════════════════════════
-               MAIN CARD
-          ════════════════════════════════════════ -->
-          <tr>
-            <td style="background-color:#ffffff;padding:36px 40px 0 40px;">
-
-              <!-- Alert label + monitor name -->
-              <p style="margin:0 0 6px 0;font-size:11px;font-weight:700;color:#c0392b;letter-spacing:2px;text-transform:uppercase;">
-                Incident Alert
+              <!-- Status line -->
+              <p style="margin:0 0 24px 0;">
+                <!-- DOWN → red dot. Change to ● color:#16a34a for UP -->
+                <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:1px;">
+                  ● Service Down
+                </span>
               </p>
-              <h1 style="margin:0 0 24px 0;font-size:24px;font-weight:700;color:#1a2340;line-height:1.2;">
-                {{monitor.name}}
+
+              <!-- Heading -->
+              <h1 style="margin:0 0 8px 0;font-size:22px;font-weight:700;color:#111827;line-height:1.3;">
+                {{ name }} is unreachable
               </h1>
-
-              <!-- Details table -->
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-                <tr>
-                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;">STATUS</td>
-                        <td style="font-size:14px;color:#1a2340;font-weight:600;">
-                          <span style="display:inline-block;background-color:#fdecea;color:#c0392b;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1px;">
-                            UNREACHABLE
-                          </span>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;padding-top:2px;">URL</td>
-                        <td style="font-size:14px;color:#2563eb;word-break:break-all;">
-                          <a href="{{monitor.url}}" style="color:#2563eb;text-decoration:none;">{{monitor.url}}</a>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;padding-top:2px;">TIMESTAMP</td>
-                        <td style="font-size:14px;color:#1a2340;">{{time}} UTC</td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;padding-top:2px;">MONITOR TYPE</td>
-                        <td style="font-size:14px;color:#1a2340;text-transform:uppercase;font-weight:600;">{{monitor.type}}</td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td style="padding:14px 0;border-top:1px solid #e8ecf0;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td style="font-size:13px;font-weight:600;color:#6b7a99;width:130px;vertical-align:top;padding-top:2px;">CHECK EVERY</td>
-                        <td style="font-size:14px;color:#1a2340;">{{monitor.interval}} seconds</td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-
-              </table>
-            </td>
-          </tr>
-
-          <!-- Reason box -->
-          <tr>
-            <td style="background-color:#ffffff;padding:24px 40px 0 40px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
-                     style="background-color:#fdecea;border-left:4px solid #c0392b;border-radius:0 6px 6px 0;">
-                <tr>
-                  <td style="padding:14px 18px;">
-                    <p style="margin:0 0 4px 0;font-size:11px;font-weight:700;color:#c0392b;letter-spacing:1px;text-transform:uppercase;">
-                      Failure Reason
-                    </p>
-                    <p style="margin:0;font-size:14px;color:#7b1818;line-height:1.5;">
-                      {{msg}}
-                    </p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- CTA Button -->
-          <tr>
-            <td style="background-color:#ffffff;padding:28px 40px 36px 40px;text-align:center;">
-              <a href="{{dashboardUrl}}"
-                 style="display:inline-block;background-color:#1a2340;color:#ffffff;font-size:14px;font-weight:600;
-                        text-decoration:none;padding:14px 36px;border-radius:8px;letter-spacing:0.5px;">
-                Open Dashboard →
-              </a>
-            </td>
-          </tr>
-
-          <!-- ═══════════════════════════════════════
-               QUICK STATS ROW
-          ════════════════════════════════════════ -->
-          <tr>
-            <td style="background-color:#f7f9fc;padding:20px 40px;border-top:1px solid #e8ecf0;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="33%" style="text-align:center;padding:8px;">
-                    <p style="margin:0;font-size:11px;color:#6b7a99;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Monitor</p>
-                    <p style="margin:6px 0 0;font-size:15px;font-weight:700;color:#1a2340;">{{monitor.name}}</p>
-                  </td>
-                  <td width="33%" style="text-align:center;padding:8px;border-left:1px solid #e8ecf0;border-right:1px solid #e8ecf0;">
-                    <p style="margin:0;font-size:11px;color:#6b7a99;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Status</p>
-                    <p style="margin:6px 0 0;font-size:15px;font-weight:700;color:#c0392b;">DOWN</p>
-                  </td>
-                  <td width="33%" style="text-align:center;padding:8px;">
-                    <p style="margin:0;font-size:11px;color:#6b7a99;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Interval</p>
-                    <p style="margin:6px 0 0;font-size:15px;font-weight:700;color:#1a2340;">{{monitor.interval}}s</p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- ═══════════════════════════════════════
-               FOOTER
-          ════════════════════════════════════════ -->
-          <tr>
-            <td style="background-color:#f0f3f8;border-top:1px solid #e0e6ed;padding:20px 40px;border-radius:0 0 12px 12px;text-align:center;">
-              <p style="margin:0 0 6px 0;font-size:12px;color:#9aa3b5;">
-                You received this alert because you have notifications enabled in
-                <strong style="color:#1a2340;">Reval Monitor</strong>.
+              <p style="margin:0 0 28px 0;font-size:14px;color:#6b7280;line-height:1.5;">
+                We detected a failure at <strong style="color:#111827;">{{ heartbeatJSON.localDateTime }} ({{ heartbeatJSON.timezone }})</strong>.
+                We'll keep checking every <strong style="color:#111827;">{{ monitorJSON.interval }}s</strong> and notify you when it recovers.
               </p>
-              <p style="margin:0;font-size:12px;color:#9aa3b5;">
-                <a href="{{dashboardUrl}}" style="color:#2563eb;text-decoration:none;">Dashboard</a>
-                &nbsp;&nbsp;·&nbsp;&nbsp;
-                <a href="{{dashboardUrl}}/settings/notifications" style="color:#2563eb;text-decoration:none;">Notification Settings</a>
-                &nbsp;&nbsp;·&nbsp;&nbsp;
-                <a href="{{dashboardUrl}}" style="color:#2563eb;text-decoration:none;">Status Page</a>
+
+              <!-- Divider -->
+              <hr style="border:none;border-top:1px solid #f3f4f6;margin:0 0 24px 0;" />
+
+              <!-- Detail rows -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:12px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;width:110px;">Monitor</td>
+                        <td style="font-size:14px;color:#111827;font-weight:500;">{{ name }}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:12px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;width:110px;">URL</td>
+                        <td style="font-size:14px;">
+                          <a href="{{ monitorJSON.url }}" style="color:#2563eb;text-decoration:none;">{{ hostnameOrURL }}</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:12px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;width:110px;">Type</td>
+                        <td style="font-size:14px;color:#111827;text-transform:uppercase;">{{ monitorJSON.type }}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:12px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;width:110px;">Detected At</td>
+                        <td style="font-size:14px;color:#111827;">{{ heartbeatJSON.localDateTime }} ({{ heartbeatJSON.timezone }})</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:12px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;width:110px;">Response Time</td>
+                        <td style="font-size:14px;color:#111827;">{{ heartbeatJSON.ping }} ms</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:12px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;width:110px;">Failures</td>
+                        <td style="font-size:14px;color:#111827;">{{ heartbeatJSON.downCount }} consecutive</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:12px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;width:110px;">Check Every</td>
+                        <td style="font-size:14px;color:#111827;">{{ monitorJSON.interval }} seconds</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="font-size:12px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;width:110px;">Reason</td>
+                        <td style="font-size:14px;color:#dc2626;">{{ msg }}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Divider -->
+              <hr style="border:none;border-top:1px solid #f3f4f6;margin:24px 0;" />
+
+              <!-- Suggested Actions -->
+              <p style="margin:0 0 12px 0;font-size:12px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;">
+                Suggested Actions
+              </p>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                     style="background:#f9fafb;border-radius:8px;padding:16px 20px;">
+                <tr>
+                  <td>
+                    <p style="margin:0 0 8px 0;font-size:13px;color:#374151;">① &nbsp;Check if the service is reachable from your network</p>
+                    <p style="margin:0 0 8px 0;font-size:13px;color:#374151;">② &nbsp;Review recent deployments or infrastructure changes</p>
+                    <p style="margin:0 0 8px 0;font-size:13px;color:#374151;">③ &nbsp;Check server logs and health endpoints</p>
+                    <p style="margin:0;font-size:13px;color:#374151;">④ &nbsp;Open the dashboard for the full incident timeline</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Divider -->
+              <hr style="border:none;border-top:1px solid #f3f4f6;margin:24px 0;" />
+
+              <!-- CTA buttons -->
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding-right:10px;">
+                    <a href="{{dashboardUrl}}"
+                       style="display:inline-block;background-color:#111827;color:#ffffff;font-size:13px;font-weight:600;
+                              text-decoration:none;padding:12px 24px;border-radius:7px;letter-spacing:0.3px;">
+                      Open Dashboard →
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{{monitor.url}}"
+                       style="display:inline-block;background-color:#ffffff;color:#111827;font-size:13px;font-weight:600;
+                              text-decoration:none;padding:12px 24px;border-radius:7px;letter-spacing:0.3px;
+                              border:1px solid #e5e7eb;">
+                      Visit URL ↗
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding-top:24px;text-align:left;">
+              <p style="margin:0;font-size:12px;color:#9ca3af;line-height:1.6;">
+                You're receiving this because alerts are enabled in
+                <a href="{{dashboardUrl}}" style="color:#6b7280;text-decoration:underline;">Reval Monitor</a>.
+                &nbsp;·&nbsp;
+                <a href="{{dashboardUrl}}/settings/notifications" style="color:#6b7280;text-decoration:underline;">Manage notifications</a>
               </p>
             </td>
           </tr>
