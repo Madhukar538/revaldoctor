@@ -1,6 +1,26 @@
 services:
   uptime-kuma:
-    image: louislam/uptime-kuma:2
+    build:
+      context: .
+      dockerfile_inline: |
+        # Stage 1: Build frontend (Vite/Vue)
+        FROM node:20-alpine AS build
+        WORKDIR /app
+        COPY package.json package-lock.json .npmrc ./
+        RUN npm ci --no-audit
+        COPY . .
+        RUN npm run build
+
+        # Stage 2: Production runtime
+        FROM node:20-alpine AS release
+        RUN apk add --no-cache dumb-init
+        WORKDIR /app
+        COPY --from=build /app ./
+        RUN npm prune --omit=dev
+        RUN mkdir -p /app/data
+        EXPOSE 3001
+        ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+        CMD ["node", "server/server.js"]
     restart: unless-stopped
     volumes:
       - ./data:/app/data
