@@ -1,4 +1,4 @@
-# Reval Moniter Review Guidelines
+# Reval Monitor Review Guidelines
 
 > [!NOTE]
 > These review guidelines are a work in progress, and are frequently

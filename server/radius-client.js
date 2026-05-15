@@ -5,7 +5,7 @@
  * Due to lack of maintenance in node-radius-client this was forked
  *
  * Implements RADIUS Access-Request functionality compatible with the original
- * node-radius-client API used in Reval Moniter.
+ * node-radius-client API used in Reval Monitor.
  */
 
 const dgram = require("dgram");

@@ -3,7 +3,7 @@
         <form @submit.prevent="submit">
             <div>
                 <object width="64" height="64" data="/icon.svg" />
-                <div style="font-size: 28px; font-weight: bold; margin-top: 5px">Reval Moniter</div>
+                <div style="font-size: 28px; font-weight: bold; margin-top: 5px">Reval Monitor</div>
             </div>
 
             <div v-if="info.runningSetup" class="mt-5">

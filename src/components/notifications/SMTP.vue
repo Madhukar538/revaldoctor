@@ -104,7 +104,7 @@
                 class="form-control"
                 required
                 autocomplete="false"
-                placeholder='"Reval Moniter" &lt;example@kuma.pet&gt;'
+                placeholder='"Reval Monitor" &lt;example@kuma.pet&gt;'
             />
             <div class="form-text"></div>
         </div>

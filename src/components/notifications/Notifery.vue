@@ -16,7 +16,7 @@
             v-model="$parent.notification.notiferyTitle"
             type="text"
             class="form-control"
-            placeholder="Reval Moniter Alert"
+            placeholder="Reval Monitor Alert"
         />
     </div>
 

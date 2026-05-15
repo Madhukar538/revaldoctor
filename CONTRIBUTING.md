@@ -1,7 +1,7 @@
 # Project Info
 
 First of all, I want to thank everyone who has submitted issues or shared pull
-requests for Reval Moniter. I never thought the GitHub community would be so nice!
+requests for Reval Monitor. I never thought the GitHub community would be so nice!
 Because of this, I also never thought that other people would actually read and
 edit my code. Parts of the code are not very well-structured or commented, sorry
 about that.
@@ -29,7 +29,7 @@ development, we run vite in development mode on another port.
 - `src` (Frontend source code)
 - `test` (unit test)
 
-## Can I Create a Pull Request for Reval Moniter?
+## Can I Create a Pull Request for Reval Monitor?
 
 Whether or not you can create a pull request depends on the nature of your
 contribution. We value both your time and our maintainers' time, so we want to
@@ -79,7 +79,7 @@ to review the appropriate one for your contribution.
 
   Please add **all** strings that are translatable to `src/lang/en.json`. If translation keys are omitted, they cannot be translated. **Do not include any other languages in your initial pull request** (even if it is your mother tongue) to avoid merge conflicts between Weblate and `master`. Once your PR is merged into `master`, the strings can be translated by awesome people donating their language skills.
 
-  We use Weblate to localise this project into many languages. If you want to help translate Reval Moniter into your language, please see [these instructions on how to translate using Weblate](https://github.com/louislam/uptime-kuma/blob/master/src/lang/README.md).
+  We use Weblate to localise this project into many languages. If you want to help translate Reval Monitor into your language, please see [these instructions on how to translate using Weblate](https://github.com/louislam/uptime-kuma/blob/master/src/lang/README.md).
 
   There are some cases where a change cannot be done directly in Weblate and requires a PR:
   - A text may not yet be localisable. In this case, **adding a new language key** via `{{ $t("Translation key") }}` or [`<i18n-t keypath="Translation key">`](https://vue-i18n.intlify.dev/guide/advanced/component.html) might be necessary.
@@ -217,7 +217,7 @@ to review the appropriate one for your contribution.
   2. **Create a new branch** for your changes (e.g., `signal-notification-provider`).
   3. **Make your changes** and **commit** them with a clear message.
   4. **Push** your changes to your forked repository.
-  5. **Open a pull request** to the `master` branch of the Reval Moniter repository.
+  5. **Open a pull request** to the `master` branch of the Reval Monitor repository.
      - For large changes, please open a **draft pull request** first to discuss the changes with the maintainers.
   6. **Provide a clear and concise description** of the changes you've made and link any related issues.
   7. **Complete the PR checklist** and make sure all CI checks pass.
@@ -249,7 +249,7 @@ to review the appropriate one for your contribution.
   not get merged / not get merged quickly. Such changes require a major version
   release.
 - **Test your code** before submitting a PR. Buggy PRs will not be merged.
-- Make sure the **UI/UX is close to Reval Moniter**.
+- Make sure the **UI/UX is close to Reval Monitor**.
 - **Think about the maintainability**: Don't add functionality that is
   completely **out of scope**. Keep in mind that we need to be able to maintain
   the functionality.
@@ -284,7 +284,7 @@ are stuck on. We are here to help.
 ## Project Style
 
 I personally do not like something that requires a lot of configuration before
-you can finally start the app. The goal is to make the Reval Moniter installation
+you can finally start the app. The goal is to make the Reval Monitor installation
 as easy as installing a mobile app.
 
 - Easy to install for non-Docker users
@@ -393,7 +393,7 @@ You can use Vue.js devtools Chrome extension for debugging.
 
 ### Frontend Details
 
-Reval Moniter Frontend is a single page application (SPA). Most paths are handled
+Reval Monitor Frontend is a single page application (SPA). Most paths are handled
 by Vue Router.
 
 The router is in `src/router.js`

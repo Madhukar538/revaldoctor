@@ -69,10 +69,10 @@ export default {
     },
     mounted() {
         if (typeof this.$parent.notification.brevoSubject === "undefined") {
-            this.$parent.notification.brevoSubject = "Notification from Your Reval Moniter";
+            this.$parent.notification.brevoSubject = "Notification from Your Reval Monitor";
         }
         if (typeof this.$parent.notification.brevoFromName === "undefined") {
-            this.$parent.notification.brevoFromName = "Reval Moniter";
+            this.$parent.notification.brevoFromName = "Reval Monitor";
         }
     },
 };

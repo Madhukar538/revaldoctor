@@ -64,7 +64,7 @@ export default {
     },
     mounted() {
         if (typeof this.$parent.notification.sendgridSubject === "undefined") {
-            this.$parent.notification.sendgridSubject = "Notification from Your Reval Moniter";
+            this.$parent.notification.sendgridSubject = "Notification from Your Reval Monitor";
         }
     },
 };

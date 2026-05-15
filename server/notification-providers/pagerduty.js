@@ -13,21 +13,21 @@ class PagerDuty extends NotificationProvider {
     async send(notification, msg, monitorJSON = null, heartbeatJSON = null) {
         try {
             if (heartbeatJSON == null) {
-                const title = "Reval Moniter Alert";
+                const title = "Reval Monitor Alert";
                 const monitor = {
                     type: "ping",
-                    url: "Reval Moniter Test Button",
+                    url: "Reval Monitor Test Button",
                 };
                 return this.postNotification(notification, title, msg, monitor);
             }
 
             if (heartbeatJSON.status === UP) {
-                const title = "Reval Moniter Monitor ✅ Up";
+                const title = "Reval Monitor Monitor ✅ Up";
                 return this.postNotification(notification, title, heartbeatJSON.msg, monitorJSON, "resolve");
             }
 
             if (heartbeatJSON.status === DOWN) {
-                const title = "Reval Moniter Monitor 🔴 Down";
+                const title = "Reval Monitor Monitor 🔴 Down";
                 return this.postNotification(notification, title, heartbeatJSON.msg, monitorJSON, "trigger");
             }
         } catch (error) {
@@ -91,13 +91,13 @@ class PagerDuty extends NotificationProvider {
                 },
                 routing_key: notification.pagerdutyIntegrationKey,
                 event_action: eventAction,
-                dedup_key: monitorInfo.id ? "Reval Moniter/" + monitorInfo.id : "Reval Moniter/test",
+                dedup_key: monitorInfo.id ? "Reval Monitor/" + monitorInfo.id : "Reval Monitor/test",
             },
         };
 
         const baseURL = await Settings.get("primaryBaseURL");
         if (baseURL && monitorInfo) {
-            options.client = "Reval Moniter";
+            options.client = "Reval Monitor";
             options.client_url = baseURL + getMonitorRelativeURL(monitorInfo.id);
         }
 

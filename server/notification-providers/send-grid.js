@@ -37,7 +37,7 @@ class SendGrid extends NotificationProvider {
             let data = {
                 personalizations: [personalizations],
                 from: { email: notification.sendgridFromEmail.trim() },
-                subject: notification.sendgridSubject || "Notification from Your Reval Moniter",
+                subject: notification.sendgridSubject || "Notification from Your Reval Monitor",
                 content: [
                     {
                         type: "text/plain",

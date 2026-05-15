@@ -1,4 +1,4 @@
-console.log("== Reval Moniter Reset Password Tool ==");
+console.log("== Reval Monitor Reset Password Tool ==");
 
 const Database = require("../server/database");
 const { R } = require("redbean-node");
@@ -134,7 +134,7 @@ function disconnectAllSocketClients(username, password) {
         });
 
         socket.on("connect_error", function () {
-            // The localWebSocketURL is not guaranteed to be working for some complicated Reval Moniter setup
+            // The localWebSocketURL is not guaranteed to be working for some complicated Reval Monitor setup
             // Ask the user to restart the server manually
             console.warn("Failed to connect to " + localWebSocketURL);
             console.warn("Please restart the server to disconnect all sessions manually.");

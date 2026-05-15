@@ -13,7 +13,7 @@ class FlashDuty extends NotificationProvider {
     async send(notification, msg, monitorJSON = null, heartbeatJSON = null) {
         try {
             if (heartbeatJSON == null) {
-                const title = "Reval Moniter Alert";
+                const title = "Reval Monitor Alert";
                 const monitor = {
                     type: "ping",
                     url: msg,
@@ -23,13 +23,13 @@ class FlashDuty extends NotificationProvider {
             }
 
             if (heartbeatJSON.status === UP) {
-                const title = "Reval Moniter Monitor ✅ Up";
+                const title = "Reval Monitor Monitor ✅ Up";
 
                 return this.postNotification(notification, title, heartbeatJSON.msg, monitorJSON, "Ok");
             }
 
             if (heartbeatJSON.status === DOWN) {
-                const title = "Reval Moniter Monitor 🔴 Down";
+                const title = "Reval Monitor Monitor 🔴 Down";
                 return this.postNotification(
                     notification,
                     title,
@@ -95,7 +95,7 @@ class FlashDuty extends NotificationProvider {
 
         const baseURL = await Settings.get("primaryBaseURL");
         if (baseURL && monitorInfo) {
-            options.client = "Reval Moniter";
+            options.client = "Reval Monitor";
             options.client_url = baseURL + getMonitorRelativeURL(monitorInfo.id);
         }
 

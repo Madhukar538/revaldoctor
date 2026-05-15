@@ -20,7 +20,7 @@
             type="text"
             class="form-control"
             autocomplete="false"
-            placeholder="Reval Moniter"
+            placeholder="Reval Monitor"
         />
     </div>
 

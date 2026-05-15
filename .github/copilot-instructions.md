@@ -1,4 +1,4 @@
-# Copilot Instructions for Reval Moniter
+# Copilot Instructions for Reval Monitor
 
 ## Copilot's Goals/Tasks
 
@@ -8,7 +8,7 @@
 
 ## Repository Overview
 
-**Reval Moniter** is a self-hosted monitoring tool for HTTP(s), TCP, DNS, Docker, etc. Built with Vue 3 (frontend) and Node.js/Express (backend), using Socket.IO for real-time communication.
+**Reval Monitor** is a self-hosted monitoring tool for HTTP(s), TCP, DNS, Docker, etc. Built with Vue 3 (frontend) and Node.js/Express (backend), using Socket.IO for real-time communication.
 
 - **Languages**: JavaScript, Vue 3, TypeScript (limited), HTML, CSS/SCSS
 - **Backend**: Node.js >= 20.4, Express.js, Socket.IO, SQLite

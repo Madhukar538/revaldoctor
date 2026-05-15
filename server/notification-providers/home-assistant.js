@@ -25,13 +25,13 @@ class HomeAssistant extends NotificationProvider {
             await axios.post(
                 `${notification.homeAssistantUrl.trim().replace(/\/*$/, "")}/api/services/notify/${notificationService}`,
                 {
-                    title: "Reval Moniter",
+                    title: "Reval Monitor",
                     message: msg,
                     ...(notificationService !== "persistent_notification" && {
                         data: {
                             name: monitorJSON?.name,
                             status: heartbeatJSON?.status,
-                            channel: "Reval Moniter",
+                            channel: "Reval Monitor",
                             icon_url: "https://github.com/louislam/uptime-kuma/blob/master/public/icon.png?raw=true",
                         },
                     }),

@@ -20,11 +20,11 @@ class Resend extends NotificationProvider {
             config = this.getAxiosConfigWithProxy(config);
             const email = notification.resendFromEmail.trim();
 
-            const fromName = notification.resendFromName?.trim() || "Reval Moniter";
+            const fromName = notification.resendFromName?.trim() || "Reval Monitor";
             let data = {
                 from: `${fromName} <${email}>`,
                 to: notification.resendToEmail,
-                subject: notification.resendSubject || "Notification from Your Reval Moniter",
+                subject: notification.resendSubject || "Notification from Your Reval Monitor",
                 // supplied text directly instead of html
                 text: msg,
             };

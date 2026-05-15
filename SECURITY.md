@@ -11,7 +11,7 @@
    do not send a notification, I probably will miss it without this.
    <https://github.com/louislam/uptime-kuma/issues/new?assignees=&labels=help&template=security.md>
 
-- Do not report any upstream dependency issues / scan result by any tools. It will be closed immediately without explanations. Unless you have PoC to prove that the upstream issue affected Reval Moniter.
+- Do not report any upstream dependency issues / scan result by any tools. It will be closed immediately without explanations. Unless you have PoC to prove that the upstream issue affected Reval Monitor.
 - Do not use the public issue tracker or discuss it in public as it will cause
   more damage.
 - Do not report any SSRF issues.
@@ -25,9 +25,9 @@ Advisories only. I will ignore all 3rd-party bug bounty platforms emails.
 
 ## Supported Versions
 
-### Reval Moniter Versions
+### Reval Monitor Versions
 
-You should use or upgrade to the latest version of Reval Moniter.
+You should use or upgrade to the latest version of Reval Monitor.
 All versions are upgradable to the latest version.
 
 ### Upgradable Docker Tags

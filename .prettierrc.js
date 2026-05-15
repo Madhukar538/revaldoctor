@@ -1,5 +1,5 @@
 /**
- * Prettier Configuration for Reval Moniter
+ * Prettier Configuration for Reval Monitor
  *
  * Usage:
  *   npm run fmt              - Format all files (auto-runs in CI via autofix workflow)

@@ -52,7 +52,7 @@ class GoogleChat extends NotificationProvider {
             }
 
             let chatHeader = {
-                title: "Reval Moniter Alert",
+                title: "Reval Monitor Alert",
             };
 
             if (monitorJSON && heartbeatJSON) {
@@ -98,7 +98,7 @@ class GoogleChat extends NotificationProvider {
                     buttonList: {
                         buttons: [
                             {
-                                text: "Visit Reval Moniter",
+                                text: "Visit Reval Monitor",
                                 onClick: {
                                     openLink: {
                                         url: baseURL + urlPath,

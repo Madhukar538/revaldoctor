@@ -1,4 +1,4 @@
-console.log("== Reval Moniter Remove 2FA Tool ==");
+console.log("== Reval Monitor Remove 2FA Tool ==");
 console.log("Loading the database");
 
 const Database = require("../server/database");

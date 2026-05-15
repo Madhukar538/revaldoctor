@@ -17,7 +17,7 @@ class Pumble extends NotificationProvider {
                 let data = {
                     attachments: [
                         {
-                            title: "Reval Moniter Alert",
+                            title: "Reval Monitor Alert",
                             text: msg,
                             color: "#5BDD8B",
                         },

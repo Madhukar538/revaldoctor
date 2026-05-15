@@ -27,13 +27,13 @@ class RocketChat extends NotificationProvider {
             }
 
             let data = {
-                text: "Reval Moniter Alert",
+                text: "Reval Monitor Alert",
                 channel: notification.rocketchannel,
                 username: notification.rocketusername,
                 icon_emoji: notification.rocketiconemo,
                 attachments: [
                     {
-                        title: `Reval Moniter Alert *Time (${heartbeatJSON["timezone"]})*\n${heartbeatJSON["localDateTime"]}`,
+                        title: `Reval Monitor Alert *Time (${heartbeatJSON["timezone"]})*\n${heartbeatJSON["localDateTime"]}`,
                         text: "*Message*\n" + msg,
                     },
                 ],

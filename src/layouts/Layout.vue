@@ -19,7 +19,7 @@
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
             >
                 <img src="https://www.revalsys.com/images/talk-to-us-logo.png" width="40" height="40" alt="Reval Monitor" class="bi me-2 ms-4" style="object-fit:contain;" />
-                <span class="fs-4 title">{{ $t("Reval Moniter") }}</span>
+                <span class="fs-4 title">{{ $t("Reval Monitor") }}</span>
             </router-link>
 
             <a
@@ -121,7 +121,7 @@
         <header v-else class="d-flex flex-wrap justify-content-center pt-2 pb-2 mb-3">
             <router-link to="/dashboard" class="d-flex align-items-center text-dark text-decoration-none">
                 <img src="https://www.revalsys.com/images/talk-to-us-logo.png" width="40" height="40" alt="Reval Monitor" class="bi" style="object-fit:contain;" />
-                <span class="fs-4 title ms-2">Reval Moniter</span>
+                <span class="fs-4 title ms-2">Reval Monitor</span>
             </router-link>
         </header>
 

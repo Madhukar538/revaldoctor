@@ -18,11 +18,11 @@ class PushDeer extends NotificationProvider {
 
         let title;
         if (valid && heartbeatJSON.status === UP) {
-            title = "## Reval Moniter: " + monitorJSON.name + " up";
+            title = "## Reval Monitor: " + monitorJSON.name + " up";
         } else if (valid && heartbeatJSON.status === DOWN) {
-            title = "## Reval Moniter: " + monitorJSON.name + " down";
+            title = "## Reval Monitor: " + monitorJSON.name + " down";
         } else {
-            title = "## Reval Moniter Message";
+            title = "## Reval Monitor Message";
         }
 
         let data = {

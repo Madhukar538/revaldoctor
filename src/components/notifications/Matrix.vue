@@ -85,7 +85,7 @@ export default {
         matrixTemplatedTextareaPlaceholder() {
             return this.$t("Example:", [
                 `
-Reval Moniter Alert{% if monitorJSON %} - {{ monitorJSON['name'] }}{% endif %}
+Reval Monitor Alert{% if monitorJSON %} - {{ monitorJSON['name'] }}{% endif %}
 
 {{ msg }}
                 `,

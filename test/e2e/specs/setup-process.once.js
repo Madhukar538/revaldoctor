@@ -1,7 +1,7 @@
 import { test } from "@playwright/test";
 import { getSqliteDatabaseExists, login, screenshot, takeSqliteSnapshot } from "../util-test";
 
-test.describe("Reval Moniter Setup", () => {
+test.describe("Reval Monitor Setup", () => {
     test.skip(() => getSqliteDatabaseExists(), "Must only run once per session");
 
     test.afterEach(async ({ page }, testInfo) => {

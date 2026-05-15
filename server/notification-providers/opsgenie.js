@@ -15,7 +15,7 @@ class Opsgenie extends NotificationProvider {
     async send(notification, msg, monitorJSON = null, heartbeatJSON = null) {
         let opsgenieAlertsUrl;
         let priority = !notification.opsgeniePriority ? 3 : notification.opsgeniePriority;
-        const textMsg = "Reval Moniter Alert";
+        const textMsg = "Reval Monitor Alert";
 
         try {
             switch (notification.opsgenieRegion) {
@@ -34,7 +34,7 @@ class Opsgenie extends NotificationProvider {
                 let data = {
                     message: msg,
                     alias: notificationTestAlias,
-                    source: "Reval Moniter",
+                    source: "Reval Monitor",
                     priority: "P5",
                 };
 
@@ -46,7 +46,7 @@ class Opsgenie extends NotificationProvider {
                     message: monitorJSON ? textMsg + `: ${monitorJSON.name}` : textMsg,
                     alias: monitorJSON.name,
                     description: msg,
-                    source: "Reval Moniter",
+                    source: "Reval Monitor",
                     priority: `P${priority}`,
                 };
 
@@ -56,7 +56,7 @@ class Opsgenie extends NotificationProvider {
             if (heartbeatJSON.status === UP) {
                 let opsgenieAlertsCloseUrl = `${opsgenieAlertsUrl}/${encodeURIComponent(monitorJSON.name)}/close?identifierType=alias`;
                 let data = {
-                    source: "Reval Moniter",
+                    source: "Reval Monitor",
                 };
 
                 return this.post(notification, opsgenieAlertsCloseUrl, data);

@@ -13,21 +13,21 @@ class Splunk extends NotificationProvider {
     async send(notification, msg, monitorJSON = null, heartbeatJSON = null) {
         try {
             if (heartbeatJSON == null) {
-                const title = "Reval Moniter Alert";
+                const title = "Reval Monitor Alert";
                 const monitor = {
                     type: "ping",
-                    url: "Reval Moniter Test Button",
+                    url: "Reval Monitor Test Button",
                 };
                 return this.postNotification(notification, title, msg, monitor, "trigger");
             }
 
             if (heartbeatJSON.status === UP) {
-                const title = "Reval Moniter Monitor ✅ Up";
+                const title = "Reval Monitor Monitor ✅ Up";
                 return this.postNotification(notification, title, heartbeatJSON.msg, monitorJSON, "recovery");
             }
 
             if (heartbeatJSON.status === DOWN) {
-                const title = "Reval Moniter Monitor 🔴 Down";
+                const title = "Reval Monitor Monitor 🔴 Down";
                 return this.postNotification(notification, title, heartbeatJSON.msg, monitorJSON, "trigger");
             }
         } catch (error) {
@@ -88,15 +88,15 @@ class Splunk extends NotificationProvider {
             data: {
                 message_type: eventAction,
                 state_message: `[${title}] [${monitorUrl}] ${body}`,
-                entity_display_name: "Reval Moniter Alert: " + monitorInfo.name,
+                entity_display_name: "Reval Monitor Alert: " + monitorInfo.name,
                 routing_key: notification.pagerdutyIntegrationKey,
-                entity_id: "Reval Moniter/" + monitorInfo.id,
+                entity_id: "Reval Monitor/" + monitorInfo.id,
             },
         };
 
         const baseURL = await Settings.get("primaryBaseURL");
         if (baseURL && monitorInfo) {
-            options.client = "Reval Moniter";
+            options.client = "Reval Monitor";
             options.client_url = baseURL + getMonitorRelativeURL(monitorInfo.id);
         }
 

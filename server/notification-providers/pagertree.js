@@ -28,7 +28,7 @@ class PagerTree extends NotificationProvider {
             }
 
             if (heartbeatJSON.status === DOWN) {
-                const title = `Reval Moniter Monitor "${monitorJSON.name}" is DOWN`;
+                const title = `Reval Monitor Monitor "${monitorJSON.name}" is DOWN`;
                 return this.postNotification(notification, title, monitorJSON, heartbeatJSON);
             }
         } catch (error) {
@@ -81,7 +81,7 @@ class PagerTree extends NotificationProvider {
 
         const baseURL = await Settings.get("primaryBaseURL");
         if (baseURL && monitorJSON) {
-            options.client = "Reval Moniter";
+            options.client = "Reval Monitor";
             options.client_url = baseURL + getMonitorRelativeURL(monitorJSON.id);
         }
 

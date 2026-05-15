@@ -13,7 +13,7 @@ class Fluxer extends NotificationProvider {
 
         try {
             let config = this.getAxiosConfigWithProxy({});
-            const fluxerDisplayName = notification.fluxerUsername || "Reval Moniter";
+            const fluxerDisplayName = notification.fluxerUsername || "Reval Monitor";
             const webhookUrl = new URL(notification.fluxerWebhookUrl);
 
             // Check if the webhook has an avatar

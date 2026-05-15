@@ -28,7 +28,7 @@ export const isNode = typeof process !== "undefined" && process?.versions?.node;
  */
 const dayjs = isNode ? require("dayjs") : dayjsFrontend;
 
-export const appName = "Reval Moniter";
+export const appName = "Reval Monitor";
 export const DOWN = 0;
 export const UP = 1;
 export const PENDING = 2;

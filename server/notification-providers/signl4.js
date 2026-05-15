@@ -30,14 +30,14 @@ class SIGNL4 extends NotificationProvider {
 
             if (heartbeatJSON == null) {
                 // Test alert
-                data.title = "Reval Moniter Alert";
+                data.title = "Reval Monitor Alert";
                 data.message = msg;
             } else if (heartbeatJSON.status === UP) {
-                data.title = "Reval Moniter Monitor ✅ Up";
+                data.title = "Reval Monitor Monitor ✅ Up";
                 data["X-S4-ExternalID"] = "UptimeKuma-" + monitorJSON.monitorID;
                 data["X-S4-Status"] = "resolved";
             } else if (heartbeatJSON.status === DOWN) {
-                data.title = "Reval Moniter Monitor 🔴 Down";
+                data.title = "Reval Monitor Monitor 🔴 Down";
                 data["X-S4-ExternalID"] = "UptimeKuma-" + monitorJSON.monitorID;
                 data["X-S4-Status"] = "new";
             }
